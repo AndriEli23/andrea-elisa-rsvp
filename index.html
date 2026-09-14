@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrea & Elisa — RSVP</title>
+<style>
+:root{--wine:#6e1825;--gold:#b28a45;--cream:#fbf7ef;--ink:#302a27}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--cream);color:var(--ink);font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:min(100%,520px);background:#fffdf9;border:1px solid #d8c7a6;border-radius:18px;padding:42px 30px;box-shadow:0 12px 40px #00000012;text-align:center}
+.names{font-size:34px;color:var(--wine);letter-spacing:.04em;margin:0 0 8px}
+.date{font-size:15px;letter-spacing:.18em;color:var(--gold);margin-bottom:32px}
+h1{font-size:26px;font-weight:normal;margin:0 0 10px;color:var(--wine)}
+.intro{font-style:italic;margin:0 0 28px}
+form{text-align:left}
+label{display:block;font-size:14px;margin:17px 0 7px}
+input,select,textarea{width:100%;padding:12px 13px;border:1px solid #d8cfc1;border-radius:9px;background:white;font:inherit}
+textarea{min-height:85px;resize:vertical}
+button{width:100%;margin-top:26px;padding:14px;border:0;border-radius:9px;background:var(--wine);color:white;font:600 15px Georgia,serif;letter-spacing:.04em;cursor:pointer}
+.thanks{display:none;padding:30px 0 10px}
+.thanks h2{color:var(--wine);font-weight:normal}
+.small{font-size:12px;color:#756b63;margin-top:20px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="names">Andrea & Elisa</div>
+  <div class="date">23 DICEMBRE 2026</div>
+  <section id="formSection">
+    <h1>Conferma la tua presenza</h1>
+    <p class="intro">Saremo felici di festeggiare insieme a voi.</p>
+    <form id="rsvp">
+      <label for="name">Nome e cognome</label>
+      <input id="name" name="name" required>
+      <label for="attendance">Confermi la tua presenza?</label>
+      <select id="attendance" name="attendance" required>
+        <option value="">Seleziona</option>
+        <option>Sì, ci sarò</option>
+        <option>No, non potrò esserci</option>
+      </select>
+      <label for="adults">Numero adulti</label>
+      <input id="adults" name="adults" type="number" min="0" max="20" value="1" required>
+      <label for="children">Numero bambini</label>
+      <input id="children" name="children" type="number" min="0" max="20" value="0" required>
+      <label for="notes">Eventuali intolleranze o allergie</label>
+      <textarea id="notes" name="notes"></textarea>
+      <button type="submit">CONFERMA LA PRESENZA</button>
+    </form>
+    <p class="small">La conferma sarà registrata dopo l'invio.</p>
+  </section>
+  <section class="thanks" id="thanks">
+    <h2>Grazie! ❤️</h2>
+    <p>Abbiamo ricevuto la tua conferma.<br>Non vediamo l'ora di festeggiare insieme!</p>
+  </section>
+</main>
+<script>
+document.getElementById('rsvp').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formSection').style.display='none';
+  document.getElementById('thanks').style.display='block';
+});
+</script>
+</body>
+</html>
